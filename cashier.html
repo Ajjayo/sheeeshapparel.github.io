@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping</title>
+
+        <link rel="icon" type="image/x-icon" href="images/logo.png">
+        <link rel="stylesheet" type="text/css" href="cashier.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+    <!-- top, start of the webpage -->
+
+    <div class="banner-bg">
+        <div class="logo-container">
+            <img class="logo" src="images/logo.png">
+            <h1 class="happy-shopping">HAPPY SHOPPING</h1>
+        </div>
+        <div class="logout-container">
+            <button class="logout-button" onclick="window.location.href = 'index.html';">Logout</button>
+        </div>
+        <div class="topnav">
+            <a href="#" onclick="window.location.href ='homepage.html';">Home</a>
+            <a href="#deposit" onclick="depositMoney()">Deposit Money</a>
+        </div>
+    </div>
+
+    <!-- the products display here -->
+
+    <div class="container">
+        <div class="products-container">
+            <!-- Products go here -->
+            <!-- Sample product -->
+            <div>
+                <img src="images/1.1.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Jeans', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/2.png">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Jeans', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/5.1.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Jeans', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/6.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Jeans', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/14.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Bags', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/15.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Bags', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/16.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Bags', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/17.jpg">
+                    <p>$5.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Bags', 5.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/LJ-1.jpg">
+                    <p>$15.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Leather Jackets', 15.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/LJ-2.jpg">
+                    <p>$16.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Leather Jackets', 15.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/LJ-3.jpg">
+                    <p>$15.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Leather Jackets', 15.00)">Add to Cart</button>
+            </div>
+            <div>
+                <img src="images/LJ-4.jpg">
+                    <p>$15.00</p>
+                <button class="add-to-cart-button" onclick="addToCart('Leather Jackets', 15.00)">Add to Cart</button>
+            </div>
+
+                <!-- Add more products here -->
+
+        </div>
+
+            <!-- Cart Summary -->
+
+            <div class="cart-summary">
+                <h2>Cart Summary</h2>
+                <div id="cartItems" class="cart-items"></div>
+                    <p id="totalAmount">Total: $0</p>
+                <button class="checkout-button" onclick="checkout()">Checkout</button>
+            </div>
+    </div>
+        <div class="footer" id="contacts">
+        
+        <div class="contacts" style="display: inline-block;">
+            <p>Contact Us</p>
+            <div style="font-size: 10px;">
+                <p>Contact Number : +6391287374621</p>
+                <p>Email : anthonymagbanua.bsit@gmail.com</p>
+                <p>Telephone Number : 2202-9328-1823</p>
+            </div>
+        </div>
+        <div class="more-information" style="display: inline-block;">
+            <p>More Information</p>
+            <div style="font-size: 10px">
+                <p>Located at San Jose, Occidental Mindoro</p>
+                <p>Liboro St., 3rd Floor</p>
+            </div>
+        </div>
+        <div class="icon" style="display: block">
+            <img src="images/fb-icon.png">
+            <img src="images/tweet-icon.png">
+            <img src="images/ig-icon.png">
+        </div>
+
+        <div class="developed-by" style="display: block; margin-left: 700px; font-size: 10px;">
+            <p>Developed by: Anthony John S. Magbanua</p>
+        </div>
+    </div>
+
+    <!-- Script -->
+
+<script type="text/javascript">
+        let cartItems = [];
+        let depositedAmount = 0;
+
+        function addToCart(itemName, itemPrice) {
+            cartItems.push({ name: itemName, price: itemPrice });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsElement = document.getElementById("cartItems");
+            cartItemsElement.innerHTML = "";
+            let totalAmount = 0;
+            cartItems.forEach(item => {
+                const itemElement = document.createElement("div");
+                itemElement.textContent = item.name + " - $" + item.price.toFixed(2);
+                cartItemsElement.appendChild(itemElement);
+                totalAmount += item.price;
+            });
+            totalAmount -= depositedAmount; // Subtract deposited amount
+            const totalAmountElement = document.getElementById("totalAmount");
+            totalAmountElement.textContent = "Total: $" + totalAmount.toFixed(2);
+        }
+
+        function checkout() {
+            if (cartItems.length === 0) {
+                alert("Your cart is empty. Please add items before checking out.");
+                return;
+            }
+
+            const totalAmount = getTotalAmount();
+            if (depositedAmount >= totalAmount) {
+                const change = depositedAmount - totalAmount;
+                alert("Thank you for shopping with us! Your change is: $" + change.toFixed(2));
+                cartItems = [];
+                depositedAmount = 0; // Reset deposited amount
+                updateCart();
+            } else {
+                alert("Insufficient funds. Please deposit enough money.");
+            }
+        }
+
+        function depositMoney() {
+            const amount = parseFloat(prompt("Enter the amount you want to deposit:"));
+            if (!isNaN(amount) && amount > 0) {
+                depositedAmount += amount;
+                updateCart();
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
+
+        function getTotalAmount() {
+            let totalAmount = 0;
+            cartItems.forEach(item => {
+                totalAmount += item.price;
+            });
+            return totalAmount;
+        }
+</script>
+
+
+</body>
+</html>

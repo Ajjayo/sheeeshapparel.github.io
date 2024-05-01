@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Arithmetic Operators using Buttons</title>
+
+	<script type="text/javascript">
+		function addition(){
+
+			var a=parseInt(t1.value);
+			var b=parseInt(t2.value);
+			var c = a + b;
+			document.getElementById("output").innerHTML = "Sum = " + c;
+		}
+		function division(){
+
+			var d=parseInt(t1.value);
+			var e=parseInt(t2.value);
+			var f = d / e;
+			document.getElementById("output").innerHTML = "Quotient = " + f;
+		}
+		function multiplication(){
+
+			var g=parseInt(t1.value);
+			var h=parseInt(t2.value);
+			var i = g * h;
+			document.getElementById("output").innerHTML = "Product = " + i;
+		}
+		function subtraction(){
+
+			var j=parseInt(t1.value);
+			var k=parseInt(t2.value);
+			var l = j - k;
+			document.getElementById("output").innerHTML = "Difference = " + l;
+		}
+		function remainder(){
+
+			var m=parseInt(t1.value);
+			var n=parseInt(t2.value);
+			var o = m % n;
+			document.getElementById("output").innerHTML = "Modulus = " + o;
+		}
+	</script>
+
+</head>
+<body>
+
+	<form>
+		<table>
+			<tr>
+				<td>Enter 1st No. :</td>
+				<td><input type="text" id="t1"></td>
+			</tr>
+			<tr>
+				<td>Enter 2nd No.:</td>
+ 				<td><input type="text" id="t2" /></td>
+			</tr>
+			<tr>
+ 				<td colspan="2" align="center">
+ 					<input type="button" value="Sum" onClick="addition()"/>
+ 				</td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2" align="center">
+ 					<input type="button" value="Quotient" onClick="division()"/>
+ 				</td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2" align="center">
+ 					<input type="button" value="Product" onClick="multiplication()"/>
+ 				</td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2" align="center">
+ 					<input type="button" value="Difference" onClick="subtraction()"/>
+ 				</td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2" align="center">
+ 					<input type="button" value="Modulus" onClick="remainder()"/>
+ 				</td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2" align="center">
+ 					<p id="output"> Output </p>
+ 				</td>
+ 			</tr>
+
+		</table>
+	</form>
+</body>
+</html>

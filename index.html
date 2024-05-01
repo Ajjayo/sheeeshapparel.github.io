@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheesh Login</title>
+    <link rel="stylesheet" type="text/css" href="login_style.css">
+</head>
+<body>
+
+    <div class="box-form">
+        <div class="left">
+            <div class="overlay">
+                <h1>Hello Sheesh</h1>
+                <p style="margin: auto;">Discover your inner beauty with our stylish products.</p>
+            </div>
+        </div>
+        <div class="right">
+            <h5>Login</h5>
+            <p>Don't have an account? <a href="#">Create your Account</a> it takes less than a minute</p>
+            <div class="inputs">
+                <input type="text" id="username" placeholder="User name">
+                <br>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+                
+            <br><br>
+                
+            <div class="remember-me--forget-password">
+                <label>
+                    <input type="checkbox" id="rememberMe" checked/>
+                    <span class="text-checkbox">Remember me</span>
+                </label>
+                <a href="#"> Forgot password?</a>
+            </div>
+                
+            <br>
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            // Get the username and password
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var rememberMe = document.getElementById("rememberMe").checked;
+
+            // Check if the username and password are valid
+            if (username === "Anthonyjohn" && password === "Anthonyjohn") {
+                alert("Login successful!");
+                window.location.href = "homepage.html";
+            } else {
+                // If not valid, show an error message
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
